@@ -1,4 +1,4 @@
-/**
+package com.example.quint.navup_pushnotification; /**
  * Created by Kyle on 4/19/2017.
  */
 
@@ -32,8 +32,10 @@ public class pushNotificationServer
             {
                 // open a connection to the site
                 URL url = new URL("http://www.unhinged.co.za/Demo/COS301/pushNotificationServer.php");
-                URLConnection con = url.openConnection();
 
+                URLConnection con = url.openConnection();
+                con.setDefaultUseCaches(false);
+                con.setUseCaches(false);
                 con.setDoOutput(true);
                 PrintStream ps = new PrintStream(con.getOutputStream());
 
@@ -68,7 +70,8 @@ public class pushNotificationServer
             // open a connection to the site
             URL url = new URL("http://www.unhinged.co.za/Demo/COS301/pushNotificationServer.php");
             URLConnection con = url.openConnection();
-
+            con.setDefaultUseCaches(false);
+            con.setUseCaches(false);
             con.setDoOutput(true);
             PrintStream ps = new PrintStream(con.getOutputStream());
 
@@ -88,6 +91,8 @@ public class pushNotificationServer
         {
             System.out.println(e);
         }
+
+
     }
 
     /**
@@ -97,9 +102,12 @@ public class pushNotificationServer
      */
     public boolean isThereNotification(User user)
     {
-        try
+       try
         {
             URL url = new URL("http://www.unhinged.co.za/Demo/COS301/notification" + user.getID() + ".txt");
+            URLConnection con = url.openConnection();
+            con.setDefaultUseCaches(false);
+            con.setUseCaches(false);
             Scanner scanner = new Scanner(url.openStream());
 
             if (scanner.next() == "")
@@ -109,37 +117,12 @@ public class pushNotificationServer
             {
                 return true;
             }
-
         } catch (Exception e)
         {
-            System.out.println(e);
+
         }
 
         return false;
-    }
-
-    /**
-     * Just to print all the notifications for a user to the console
-     * @param user
-     */
-    public void printNotifications(User user)
-    {
-        try
-        {
-            URL url = new URL("http://www.unhinged.co.za/Demo/COS301/notification" + user.getID() + ".txt");
-            URLConnection con = url.openConnection();
-            con.setUseCaches(false);
-            Scanner scanner = new Scanner(url.openStream()).useDelimiter("#END#");
-
-            while (scanner.hasNext())
-            {
-                System.out.println(scanner.next());
-            }
-
-        } catch (Exception e)
-        {
-            System.out.println(e);
-        }
     }
 
     /**
@@ -156,6 +139,7 @@ public class pushNotificationServer
             URL url = new URL("http://www.unhinged.co.za/Demo/COS301/notification" + user.getID() + ".txt");
             URLConnection con = url.openConnection();
             con.setUseCaches(false);
+            con.setDefaultUseCaches(false);
             Scanner scanner = new Scanner(url.openStream()).useDelimiter("#END#");
 
             while (scanner.hasNext())
@@ -193,6 +177,8 @@ public class pushNotificationServer
                 // open a connection to the site
                 URL url = new URL("http://www.unhinged.co.za/Demo/COS301/pushNotificationServer.php");
                 URLConnection con = url.openConnection();
+                con.setDefaultUseCaches(false);
+                con.setUseCaches(false);
                 con.setDoOutput(true);
                 PrintStream ps = new PrintStream(con.getOutputStream());
 
@@ -226,6 +212,8 @@ public class pushNotificationServer
             // open a connection to the site
             URL url = new URL("http://www.unhinged.co.za/Demo/COS301/pushNotificationServer.php");
             URLConnection con = url.openConnection();
+            con.setUseCaches(false);
+            con.setDefaultUseCaches(false);
             con.setDoOutput(true);
             PrintStream ps = new PrintStream(con.getOutputStream());
 
