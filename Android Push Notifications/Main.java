@@ -18,6 +18,7 @@ public class Main
             notification.getNotifications(users[j]);
         }
 
+        
         notification.deleteNotifications(users);
     }
 
