@@ -120,22 +120,39 @@
 		\paragraph{There were no tests found in the team Broadsword's Github repository. We would use the following python's built in libraries to test different cases}
 		\subsection{Test cases for the NSQ server}	
 			\begin{itemize}
-				\item A test to ensure the NSQ server has succesfully started and is ready to be used
-				\item A test to see if the program correctly handles it when the server failed to start
+				\item A test to ensure the NSQ server has succesfully started and is ready to be used:
+					\begin{itemize}
+						\item Did it output "Starting"
+						\item Can you connect to the 127.0.0.1:4160 address
+						\item Did it output "Message service is running..."
+					\end{itemize}
+				\item A test to see if the server failed to start but it is expected to not start:
+					\begin{itemize}
+						\item Did it output "Starting"
+						\item HTTP status code 404 when accessing the 127.0.0.1:4160 address
+					\end{itemize}
 			\end{itemize}
 		\subsection{Test cases for the notification server}
 			\begin{itemize}
 				\item A test to see that the Notification server has successfully started and is ready to be used
-				\item A test to see if the program correctly handles it when the server failed to start	
+					\begin{itemize}
+						\item In the test's setup create a JSON object with correct data.
+						\item Call sendEmail(self, request) 
+						\item Check that the email's body was what is expected as per the setup process
+						\item Ensure all other aspects such as the To addres, From address and subject is also correctly set
+						\item Confirm with the writer.py's output that the email was sent succesfully
+					\end{itemize}
+				\item A test to see if sendEmail failed as expected with incorrect data 	
+					\begin{itemize}
+						\item In the test's setup create a JSON object with incorrect data to cause the email to fail.
+						\item Call sendEmail(self, request) 
+						\item Check that all aspects of the email are as expected with the incorrect data in mind.
+						\item Confirm that the function hit the error and was caught in the try catch
+					\end{itemize}
+				\item Test cases for the logNotification function's implementation
+					\begin{itemize}
+						\item In the test's setup, create and send a successful email
+						\item Print out the latest message in the log and it confirm that it is what is expected to be logged
+					\end{itemize}
 			\end{itemize}
-		\subsection{Test cases for the functions of the notification implementation}
-			\begin{itemize}
-				\item A test to see if a single email could be successfully be sent.
-				\item A test to see if a batch of emails could be successfully be sent.
-				\item A test to ensure the logging functionality successfully and in the correct order logged the requests
-			\end{itemize}
-
-
-	
-	
 \end{document}
