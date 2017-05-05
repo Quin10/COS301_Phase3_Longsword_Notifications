@@ -30,8 +30,8 @@
 	
 	\newpage
 	
-	
-	\section{Create a list of service contracts tested}
+	\section{High level functional level requirements test models}
+	\section{Lists of service contracts tested}
 	\subsection{Pre-conditions}
 	\begin{itemize}
 		\item User details such as email address do exist and are valid.
@@ -57,7 +57,6 @@
 		\item The notification services of the Broadsword team does work, There are however no batch emails have been implemented.
 		\item The system does have a method to log the email notifications, this is done by saving he notifications request object.  
 	\end{itemize}
-	\section{Create a list of non-functional requirements tested}
 	\section{Evaluate the test cases of the previous team for non-functional requirements using your own criteria}	
 		\subsection{Modularity}
 			\paragraph{We felt that the broadsword notification team developed well written and modularized code. Each class has designed for a unique purpose and did nothing outside of that purpose. The functions themselves were not over complicated However they could have broken them up to into separate tasks.  \newline8/10}
@@ -69,7 +68,25 @@
 		    \paragraph{The error handling was implemented very well with in their python script, which is the dominant language they used. Every error thrown was caught and handled such as unsupported http requests. Their java script, however, did not provided any error handling on some object creations. This could lead to the function ending unexpectedly. \newline7/10}
 		\subsection{Use Cases} 
 			\paragraph{}
+
 	\section{Add more tests if required}
+		\paragraph{There were no tests found in the team Broadsword's Github repository. We would use the following python's built in libraries to test different cases}
+		\subsection{Test cases for the NSQ server}	
+			\begin{itemize}
+				\item A test to ensure the NSQ server has succesfully started and is ready to be used
+				\item A test to see if the program correctly handles it when the server failed to start
+			\end{itemize}
+		\subsection{Test cases for the notification server}
+			\begin{itemize}
+				\item A test to see that the Notification server has successfully started and is ready to be used
+				\item A test to see if the program correctly handles it when the server failed to start	
+			\end{itemize}
+		\subsection{Test cases for the functions of the notification implementation}
+			\begin{itemize}
+				\item A test to see if a single email could be successfully be sent.
+				\item A test to see if a batch of emails could be successfully be sent.
+				\item A test to ensure the logging functionality successfully and in the correct order logged the requests
+			\end{itemize}
 
 
 	
