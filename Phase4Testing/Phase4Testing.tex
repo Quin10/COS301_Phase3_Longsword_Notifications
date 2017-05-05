@@ -32,6 +32,31 @@
 	
 	
 	\section{Create a list of service contracts tested}
+	\subsection{Pre-conditions}
+	\begin{itemize}
+		\item User details such as email address do exist and are valid.
+		\item Notification request is complete with details of the email for example the subject and body of the email.
+		\item The user receiving the email exists in the system
+	\end{itemize}
+	\subsubsection{Post-conditions}
+	\begin{itemize}
+		\item At least one notification has been sent to the appropriate user/users.
+		\item System should log who Notifications are sent to, if the Notification request is not successful, the error message should be logged as well.
+	\end{itemize}
+	\textbf{The Notifications services should only fail under Three conditios that are:}
+	\begin{itemize}
+		\item Request has failed to meet the validation criteria specified in the post conditions.
+		\item The request information is incomplete or has an error.
+		\item There actually is no notification for the user.
+	\end{itemize}
+	\subsection{Team Broadsword Notification Serices}
+	For this section we inspected the code of the Team Broadsword email services.
+	\begin{itemize}
+		\item In the code, the user details are supplied to send an email, this includes email, subject and body. 
+		\item The email is not verified that it truelly is a real email address, therefore for fake user email, the code will produce exceptions. 
+		\item The notification services of the Broadsword team does work, There are however no batch emails have been implemented.
+		\item The system does have a method to log the email notifications, this is done by saving he notifications request object.  
+	\end{itemize}
 	\section{Create a list of non-functional requirements tested}
 	\section{Evaluate the test cases of the previous team for non-functional requirements using your own criteria}	
 		\subsection{Modularity}
