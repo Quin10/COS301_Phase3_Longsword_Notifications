@@ -72,7 +72,31 @@
 \paragraph{} Description : The system does have a method to log the email notifications, this is done by saving he notifications request object.
 \paragraph{} Mark : 10
 
-	\section{Create a list of non-functional requirements tested}
+\section{Create a list of non-functional requirements tested}
+\subsection{Integrability}
+\paragraph{} Mark : 8
+\paragraph{} Comments : The functions are well defined making them easy to understand resulting in a notification module that can easily be plugged into another application/program. The file structure can be improved on however as there were a lot of redundant files in the final Git repository.
+
+\subsection{Maintainability}
+\paragraph{} Mark : 9
+\paragraph{} Comments : The code is readable and simple to understand. The modularity also makes the maintenance of the program simpler as errors in a certain part of the program are easier to locate and rectify. 
+
+\subsection{Scalability}
+\paragraph{} Mark : 8
+\paragraph{} Comments : Due to the fact that a Gmail account is being used to send the emails, a maximum limit of 500 emails can only be sent per day. This can be rectified by using the university's email server.
+
+\subsection{Reliability}
+\paragraph{} Mark : 6
+\paragraph{} Comments : If all required fields have the correct values such as email,body and subject then the email will go through, but there is no error checking to check if the parameters actually contain valid values, and if the email address supplied is incorrect then the code runs into errors.
+
+\subsection{Security}
+\paragraph{} Mark : 6
+\paragraph{} Comments : Since they are making use of the Google API, a certain level of encryption is provided in the API itself. The password to the account is however visible in the code and not encrypted. 
+
+\subsection{Accessibility}
+\paragraph{} Mark : 9
+\paragraph{} Comments : The email services can be used and are always accessible through the notification server as long as the account has not reached the limit of 500 emails for the day, after which the system will be completely unresponsive or result in errors.
+
 \section{Evaluate the test cases of the previous team for non-functional requirements using your own criteria}	
 		\subsection{Modularity}
 			\paragraph{We felt that the broadsword notification team developed well written and modularized code. Each class has designed for a unique purpose and did nothing outside of that purpose. The functions themselves were not over complicated However they could have broken them up to into separate tasks.  \newline8/10}
