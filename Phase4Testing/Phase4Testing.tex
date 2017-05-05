@@ -43,13 +43,13 @@
 		\item At least one notification has been sent to the appropriate user/users.
 		\item System should log who Notifications are sent to, if the Notification request is not successful, the error message should be logged as well.
 	\end{itemize}
-	\textbf{The Notifications services should only fail under Three conditios that are:}
+	\textbf{The Notifications services should only fail under Three conditions that are:}
 	\begin{itemize}
 		\item Request has failed to meet the validation criteria specified in the post conditions.
 		\item The request information is incomplete or has an error.
 		\item There actually is no notification for the user.
 	\end{itemize}
-	\subsection{Team Broadsword Notification Serices}
+	\subsection{Team Broadsword Notification Services}
 	For this section we inspected the code of the Team Broadsword email services.
 	\begin{itemize}
 		\item In the code, the user details are supplied to send an email, this includes email, subject and body. 
@@ -58,10 +58,57 @@
 		\item The system does have a method to log the email notifications, this is done by saving he notifications request object.  
 	\end{itemize}
 	\section{Evaluate the test cases of the previous team for non-functional requirements using your own criteria}	
+
+\subsubsection{Create/Submit a Notification Request Through Browser} 
+\paragraph{}Description : The HTML page accepts an email address and message which can then be submitted through a javascript function which retrieves the information entered and creates a notification request. The information is sent to this request object using a JSON string. This request is submitted using the "Post" method.
+\paragraph{} Mark : 10
+
+\subsubsection{Verify Email Address} 
+\paragraph{}Description : The email address is not verified that it truly is a real email address, therefore for fake user emails, the code will produce exceptions. However these exception are somewhat accounted for.
+\paragraph{} Mark : 4
+
+\subsubsection{Handle Incoming Notification Request From Browser}
+\paragraph{} The notification module does handle the incoming requests submitted from the browser using a python script.This script uses and SMTP server to send the email through to the supplied email address. The is no way of handling batch email requests however, so several email notification requests have to be created in order to mimic this batch functionality.
+\paragraph{} Mark : 8
+
+\subsubsection{Create Web Server To Handle Incoming Requests} 
+\paragraph{} A notification HTTP server is created and implemented to handle all notification requests. This sever is implemented using a python script and once again makes use of SMTP.
+\paragraph{} Mark : 10
+
+\subsubsection{Log Notifications} 
+\paragraph{} Description : The system does have a method to log the email notifications, this is done by saving he notifications request object.
+\paragraph{} Mark : 10
+
+\section{Create a list of non-functional requirements tested}
+\subsection{Integrability}
+\paragraph{} Mark : 8
+\paragraph{} Comments : The functions are well defined making them easy to understand resulting in a notification module that can easily be plugged into another application/program. The file structure can be improved on however as there were a lot of redundant files in the final Git repository.
+
+\subsection{Maintainability}
+\paragraph{} Mark : 9
+\paragraph{} Comments : The code is readable and simple to understand. The modularity also makes the maintenance of the program simpler as errors in a certain part of the program are easier to locate and rectify. 
+
+\subsection{Scalability}
+\paragraph{} Mark : 8
+\paragraph{} Comments : Due to the fact that a Gmail account is being used to send the emails, a maximum limit of 500 emails can only be sent per day. This can be rectified by using the university's email server.
+
+\subsection{Reliability}
+\paragraph{} Mark : 6
+\paragraph{} Comments : If all required fields have the correct values such as email,body and subject then the email will go through, but there is no error checking to check if the parameters actually contain valid values, and if the email address supplied is incorrect then the code runs into errors.
+
+\subsection{Security}
+\paragraph{} Mark : 6
+\paragraph{} Comments : Since they are making use of the Google API, a certain level of encryption is provided in the API itself. The password to the account is however visible in the code and not encrypted. 
+
+\subsection{Accessibility}
+\paragraph{} Mark : 9
+\paragraph{} Comments : The email services can be used and are always accessible through the notification server as long as the account has not reached the limit of 500 emails for the day, after which the system will be completely unresponsive or result in errors.
+
+\section{Evaluate the test cases of the previous team for non-functional requirements using your own criteria}	
 		\subsection{Modularity}
 			\paragraph{We felt that the broadsword notification team developed well written and modularized code. Each class has designed for a unique purpose and did nothing outside of that purpose. The functions themselves were not over complicated However they could have broken them up to into separate tasks.  \newline8/10}
 		\subsection{In-code Comments}
-			\paragraph{The comments for their implementation were decent however there were places were a comment could have been added or expanded upon. The classes themselves each have a descrption of what the classes are supposed to do but again were not exapned upon. \newline6/10}
+			\paragraph{The comments for their implementation were decent however there were places were a comment could have been added or expanded upon. The classes themselves each have a description of what the classes are supposed to do but again were not explained upon. \newline6/10}
 		\subsection{Capacity}
 			\paragraph{The team implemented the ability to send a single a email however they didn't provide the ability to send batch emails. \newline6/10}
 		\subsection{Error Handling}

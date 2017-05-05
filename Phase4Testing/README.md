@@ -1,2 +1,5 @@
-# lswordTestingPhase
-COS 301 project. We (Team Longsword Notification) will be doing the testing on project Broadsword Notification
+# COS 301
+## Longsword - Notifications
+
+#### Phase 4 - Peer Review  
+We were tasked with testing and reviewing the code built by the broadsword (web) notifcations team. 
